@@ -1,4 +1,4 @@
-import './styles.css';
+ import './styles.css';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -178,9 +178,4 @@ videoIcon.addEventListener('click', () => {
     videoIcon.classList.add('fa-video');
     // Enable local video track
   }
-});
-
-// Open settings panel
-settingsIcon.addEventListener('click', () => {
-  document.getElementById('settings-panel').classList.toggle('open');
 });
