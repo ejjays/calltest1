@@ -42,26 +42,25 @@ const micIcon = document.getElementById('mic-icon');
 const videoIcon = document.getElementById('video-icon');
 const settingsIcon = document.getElementById('settings-icon');
 
-// Function to initialize local stream
-async function initLocalStream() {
+// Function to request media permissions
+async function requestMediaPermissions() {
   try {
-    // Request access to the camera and microphone
     localStream = await navigator.mediaDevices.getUserMedia({
       video: true,
       audio: true
     });
-
-    // Set the local video element's source to the local stream
-    user1Video.srcObject = localStream;
-
+    user1Video.srcObject = localStream; // Set the local video element's source to the local stream
   } catch (error) {
     console.error('Error accessing media devices:', error);
     alert('Could not access camera and microphone. Please check your permissions.');
   }
 }
 
-// Call the initLocalStream function when the page loads
-window.onload = initLocalStream;
+// Call the requestMediaPermissions function when the settings panel is opened
+settingsIcon.addEventListener('click', () => {
+  document.getElementById('settings-panel').classList.toggle('open');
+  requestMediaPermissions(); // Request permissions when opening settings
+});
 
 // 1. Setup media sources
 callButton.onclick = async () => {
