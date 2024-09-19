@@ -1,11 +1,3 @@
-const settingsIcon = document.getElementById('settings-icon');
-const settingsPanel = document.getElementById('settings-panel');
-const backButton = document.getElementById('back-button');
-const micIcon = document.getElementById('mic-icon');
-const videoIcon = document.getElementById('video-icon');
-const user1Video = document.getElementById('user1-video'); // Your video
-const user2Video = document.getElementById('user2-video'); // Placeholder for User 2
-
 // Function to request media permissions
 async function requestMediaPermissions() {
     try {
@@ -19,6 +11,14 @@ async function requestMediaPermissions() {
         alert('Could not access camera and microphone. Please check your permissions.');
     }
 }
+
+const settingsIcon = document.getElementById('settings-icon');
+const settingsPanel = document.getElementById('settings-panel');
+const backButton = document.getElementById('back-button');
+const micIcon = document.getElementById('mic-icon');
+const videoIcon = document.getElementById('video-icon');
+const user1Video = document.getElementById('user1-video'); // Your video
+const user2Video = document.getElementById('user2-video'); // Placeholder for User 2
 
 // UI and control logic
 settingsIcon.addEventListener('click', () => {
