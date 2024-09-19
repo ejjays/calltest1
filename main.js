@@ -1,4 +1,4 @@
- import './styles.css';
+import './styles.css';
 
 import firebase from 'firebase/app';
 import 'firebase/firestore';
@@ -41,6 +41,26 @@ const user2Video = document.getElementById('user2-video');
 const micIcon = document.getElementById('mic-icon');
 const videoIcon = document.getElementById('video-icon');
 const settingsIcon = document.getElementById('settings-icon');
+
+// Function to initialize local stream
+async function initLocalStream() {
+  try {
+    // Request access to the camera and microphone
+    localStream = await navigator.mediaDevices.getUserMedia({
+      video: true,
+      audio: true
+    });
+
+    // Set the local video element's source to the local stream
+    user1Video.srcObject = localStream;
+
+  } catch (error) {
+    console.error('Error accessing media devices.', error);
+  }
+}
+
+// Call the initLocalStream function when the page loads
+window.onload = initLocalStream;
 
 // 1. Setup media sources
 callButton.onclick = async () => {
@@ -178,4 +198,9 @@ videoIcon.addEventListener('click', () => {
     videoIcon.classList.add('fa-video');
     // Enable local video track
   }
+});
+
+// Open settings panel
+settingsIcon.addEventListener('click', () => {
+  document.getElementById('settings-panel').classList.toggle('open');
 });
