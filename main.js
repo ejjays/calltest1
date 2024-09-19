@@ -55,7 +55,8 @@ async function initLocalStream() {
     user1Video.srcObject = localStream;
 
   } catch (error) {
-    console.error('Error accessing media devices.', error);
+    console.error('Error accessing media devices:', error);
+    alert('Could not access camera and microphone. Please check your permissions.');
   }
 }
 
