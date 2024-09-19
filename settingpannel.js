@@ -1,17 +1,3 @@
-// Function to request media permissions
-async function requestMediaPermissions() {
-    try {
-        const localStream = await navigator.mediaDevices.getUserMedia({
-            video: true,
-            audio: true
-        });
-        user1Video.srcObject = localStream; // Set the local video element's source to the local stream
-    } catch (error) {
-        console.error('Error accessing media devices:', error);
-        alert('Could not access camera and microphone. Please check your permissions.');
-    }
-}
-
 const settingsIcon = document.getElementById('settings-icon');
 const settingsPanel = document.getElementById('settings-panel');
 const backButton = document.getElementById('back-button');
